@@ -5,180 +5,112 @@
     box-sizing: border-box;
 }
 
-/* Body Styling */
+/* Body Styling with LED Background */
 body {
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(to right, #b3c6ff, #ffb3d9); /* Màu xanh và hồng nhẹ */
-    color: #333;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(90deg, red, orange, yellow, green, cyan, blue, violet);
+    background-size: 400% 400%;
+    animation: backgroundAnimation 8s infinite;
+    color: #fff;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     text-align: center;
-    overflow: auto; /* Cho phép cuộn khi cần */
-    padding: 20px;
+    overflow-y: auto; /* Enable scrolling for long content */
+}
+
+/* LED Animation for Background */
+@keyframes backgroundAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 /* Container Styling */
 .container {
-    background: #ffffff; /* Nền trắng bên trong */
-    padding: 40px 30px;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 20px 30px;
     border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    max-width: 420px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    max-width: 400px;
     width: 100%;
-    animation: fadeIn 1.2s ease-in-out;
-    border: 2px solid #e0e0e0; /* Khung xung quanh */
-    max-height: 90vh; /* Đảm bảo chiều cao tối đa */
-    overflow-y: auto; /* Cuộn dọc */
-    background: linear-gradient(135deg, #ffcccc, #ccffcc); /* Nền gradient nhẹ */
-}
-
-
-/* Fade-in Animation */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: scale(0.9);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
 }
 
 /* Profile Section */
-.profile {
-    background: #ffffff;
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-    border: 1px solid #ddd;
-}
-
 .profile img {
     width: 120px;
     height: 120px;
     border-radius: 50%;
     margin-bottom: 15px;
-    border: 5px solid #ff66b2; /* Màu hồng cho hình đại diện */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 3px solid #ff7eb3;
 }
 
-.profile img:hover {
-    transform: scale(1.1);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
-}
-
-/* Nổi bật phần đoạn văn */
-.highlight1 {
-    font-size: 32px; /* Tăng kích thước chữ */
-    font-weight: bold;
-    color: #ff3366; /* Màu đỏ tươi */
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 15px;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
-    animation: bounceEffect 1s ease-in-out infinite;
-}
-
-.highlight2 {
-    font-size: 20px; /* Kích thước chữ nhỏ hơn */
-    font-weight: 500;
-    color: #33cc33; /* Màu xanh lá */
-    text-transform: uppercase;
-    letter-spacing: 1px;
+.profile h1 {
+    font-size: 32px;
+    font-weight: 700;
     margin-bottom: 10px;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
-    animation: shakeEffect 1s ease-in-out infinite;
+    background: linear-gradient(90deg, #ff0000, #ff9900, #00ff00, #0000ff, #ff00ff);
+    background-size: 200% 200%;
+    animation: textRGB 3s infinite;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-.highlight3 {
-    font-size: 16px; /* Kích thước chữ nhỏ hơn */
-    font-weight: 400;
-    color: #ff9900; /* Màu vàng cam */
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 15px;
-    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
-    animation: zoomEffect 1.5s ease-in-out infinite;
+.profile h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #ffcc00;
 }
 
-.highlight4 {
-    font-size: 14px; /* Kích thước chữ nhỏ cho Zalo */
-    font-weight: normal;
-    color: #0099cc; /* Màu xanh dương cho Zalo */
-    margin-bottom: 15px;
-    text-transform: uppercase;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
-    transition: color 0.3s ease, transform 0.3s ease;
-}
-
-.highlight4 a {
-    color: #0099cc;
-    text-decoration: none;
-    font-weight: bold;
+.profile p {
     font-size: 14px;
+    color: #ddd;
+    margin-bottom: 15px;
 }
 
-.highlight4:hover {
-    transform: scale(1.05);
-    color: #00b3b3; /* Màu thay đổi khi hover */
+.profile .highlight4 a {
+    color: #00ffff;
+    font-weight: bold;
+    text-decoration: none;
+    animation: linkGlow 2s infinite alternate;
 }
 
-/* Hiệu ứng chuyển động cho từng đoạn */
-@keyframes bounceEffect {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-10px);
-    }
+/* RGB Animation for Text */
+@keyframes textRGB {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
-@keyframes shakeEffect {
-    0%, 100% {
-        transform: translateX(0);
-    }
-    25% {
-        transform: translateX(-5px);
-    }
-    50% {
-        transform: translateX(5px);
-    }
-    75% {
-        transform: translateX(-5px);
-    }
-}
-
-@keyframes zoomEffect {
-    0%, 100% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.1);
-    }
+/* Glow Animation for Links */
+@keyframes linkGlow {
+    0% { text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff; }
+    100% { text-shadow: 0 0 20px #00ffff, 0 0 30px #00ffff; }
 }
 
 /* Links Section */
 .links {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 15px;
 }
 
 .links a {
     text-decoration: none;
     font-size: 16px;
-    font-weight: 600;
+    font-weight: 500;
     color: #fff;
-    background: linear-gradient(135deg, #6a11cb, #2575fc); /* Xanh và tím */
-    padding: 14px 20px;
-    border-radius: 12px;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    padding: 12px 20px;
+    border-radius: 8px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .links a i {
@@ -187,17 +119,12 @@ body {
 
 .links a:hover {
     transform: translateY(-5px);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
-/* Footer Section */
+/* Footer */
 footer {
     margin-top: 20px;
     font-size: 12px;
     color: #999;
-}
-footer strong {
-    color: #333;
-    font-weight: bold;
-    text-transform: uppercase;
 }
